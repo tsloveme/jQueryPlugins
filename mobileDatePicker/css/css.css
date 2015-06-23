@@ -1,0 +1,330 @@
+/*初始化*/
+.clearfix:after{content:"."; display:block; clear:both; line-height:0; font-size:0; height:0; overflow:hidden; visibility:hidden;}
+.clearfix{*zoom:1;}
+.clear{display:block; height:0; font-size:0; line-height:0; visibility:hidden; overflow:hidden; clear:both;}
+p,ul,ol,li,body,h1,h2,h3,h4,h5,h6,dl,dd,form,input,li,dd{margin:0; padding:0;}
+body{font-size:12pt; color:#484848; font-family:Arial, Helvetica, sans-serif; background-color:#eeeee6;}
+h1,h2,h3,h4,h5,h6{font-size:12pt;}
+img{border:none}
+ul li{list-style-type:none;}
+ol{}
+/*初始化*/
+
+/*公用头部title*/
+.header{position:relative; line-height:34pt; font-size:16pt; font-family:"微软雅黑"; color:#eb7836; background-color:#f2f1ef; text-align:center; border-bottom:2pt #eb7836 solid; padding-top:2pt;}
+.header .back{position:absolute; display:block; cursor:pointer; width:38pt; height:36pt; left:0; top:0; background-repeat:no-repeat; background-position: center center; background-image:url(../images/btn_menubar_back.png); background-size: auto 100%;-webkit-background-size: auto 100%;}
+.header .txtBtn{height:34pt; display:block; padding:0 8pt 0 8pt; font-size:13pt; color:#eb7836; text-decoration:none; position:absolute; right:0; top:2pt;}
+.header .icoBtn{padding:0 8pt 0 18pt; background-image:url(../images/icon_o_phone.png); background-repeat:no-repeat; background-position:1pt center; background-size:auto 14pt;}
+
+
+
+.btnC,.btnG{padding:8pt 10pt; min-width:48pt; font-size:14pt; border-radius:3.5pt; background-color:#eb7836; color:#fff; border:0; display:inline-block; text-align:center; text-decoration:none;}
+.btnC:link,.btnC:hover,.btnG:link,.btnG:hover{text-decoration:none; color:#fff;}
+.btnG{background-color:#b5b5b5;}
+
+/*login*/
+.loginWrap{margin:25pt 15pt 15pt 15pt;}
+.loginWrap .textWrap .outer{}
+.textWrap{border:1pt #a4a19a solid; border-radius:5pt;}
+.textWrap th{vertical-align:middle;}
+.textWrap th img{vertical-align:top;}
+.textWrap .txt{font-size:12pt; color:#333; border:0; width:96%; text-indent:2pt; margin:10pt 0;}
+.textWrap .def{color:#999;}
+.loginWrap .btnWrap{padding-top:16pt;}
+.loginWrap .btnC{width:48%;}
+.loginWrap .msg{padding:16pt 0 12pt 0;}
+.loginWrap .lb{color:#666;}
+.loginWrap .lberror{color:red;}
+.loginWrap .kr{border-top:1pt #999 solid;}
+.loginWrap .kr h2{font-size:12pt; padding:4pt 0; padding-left:15pt; background-image:url(../images/icon_info.png); background-repeat:no-repeat; background-size: auto 60%; background-position:left center;}
+.loginWrap .kr ol{padding-left:15pt;}
+.loginWrap .kr ol li{padding:2pt 0;}
+
+/*userBind*/
+.uBind{}
+.uBind .tbWrap{border-bottom:#b5b5b5 1pt solid;background-color:#fff;}
+.uBind .tb{margin:0 auto; position:relative; bottom:-1pt; width:98%; border-collapse:collapse;}
+.uBind td,.uBind th{padding:12pt 2pt; border-bottom:1pt #b5b5b5 solid; }
+.uBind th{text-align:right; font-weight:normal;}
+.uBind .btnC{width:96%; display:block; margin:18pt auto; padding-left:0; padding-right:0;}
+
+/*酒店预订*/
+.HS{background-color:#fff; padding:1pt 0  40pt 0;}
+.HS .form{border:1pt #a4a19a solid; border-radius:5pt; margin:15pt;}
+.HS .form table{margin:0 auto; position:relative; bottom:-1pt;}
+.HS .form td,.HS .form th{padding:8pt 2pt; border-bottom:1pt #b5b5b5 solid; color:#333; font-size:12pt; vertical-align:middle; text-align:right}
+.HS .form th{font-weight:normal; color:#999; text-align:left;}
+.HS th .wrap{background-position:left center; background-repeat:no-repeat; background-size:auto 16pt; padding:2pt 0; padding-left:18pt; white-space:nowrap }
+.HS th .ct{background-image:url(../images/icon_HS_city.png);}
+.HS th .date{background-image:url(../images/icon_HS_date.png);}
+.HS th .search{background-image:url(../images/icon_HS_search.png);}
+
+
+/*.HS td .wrap{background-position:right center; background-repeat:no-repeat; background-size:auto 16pt; padding:2pt 0; padding-right:18pt; background-image:url(images/icon_arrow_right.png);}
+*/
+.HS .txt{ width:88%;border:0; font-size:12pt;background-position:right center; background-repeat:no-repeat; background-size:auto 12pt; padding:2pt 0; padding-right:18pt; background-image:url(../images/icon_arrow_right.png);}
+.HS .btnC{display:block; margin:20pt 15pt; padding-left:0; padding-right:0;}
+
+
+
+/*选择城市*/
+.Ct-Sl{margin-right:36pt;}
+.Ct-Sl .txtWrap{background-color:#fff; padding-left:18pt; border-radius:14pt; background-image:url(../images/icon_search_gray.png); background-repeat:no-repeat; background-size: auto 14pt; background-position:3pt center; border:0; margin:10pt; overflow:hidden;}
+.Ct-Sl .txt{padding:6pt 12pt 6pt 0pt;font-size:12pt; color:#999; border:0; width:90%; background-color:transparent;}
+
+.Ct-Sl h2{margin:0 0 0 10pt; padding:6pt 0; padding-left:16pt; background-position:left center; background-size:auto 14pt; background-repeat:no-repeat; color:black; background-image:url(../images/icon_city_title_location.png);}
+.Ct-Sl h2.hot{background-image:url(../images/icon_city_title_hot.png)}
+.Ct-Sl ul{color:#999; font-size:12pt; padding:1pt 5pt 2pt 5pt; background-color:#fff;}
+.Ct-Sl li{line-height:1.2; padding:8pt; border-bottom:1pt #b5b5b5 solid;}
+.rFixed{position:absolute; overflow:scroll;/* height:calc(100% - 38pt);*/ width:34pt; border-left:1pt #be961e solid; border-right:1pt #be961e solid; background-color:white; text-align:center; right:0; top:38pt;}
+.rFixed a{display:block; color:#f08300; padding:3pt 0; margin-top:2pt; text-decoration:none;}
+.rFixed .t{ padding:3pt 0; font-size:10pt; color:#f08300; padding-bottom:12pt;}
+
+/*关键字-行政区域*/
+.s_form{background-color:#fff; padding-left:18pt; border-radius:14pt; background-image:url(../images/icon_search_gray.png); background-repeat:no-repeat; background-size: auto 14pt; background-position:3pt center; border:0; margin:5pt 10pt; overflow:hidden; border:1pt #e0e0e0 solid;}
+.s_form .txt{padding:6pt 12pt 6pt 0pt;font-size:12pt; color:#999; border:0; width:90%; background-color:transparent;}
+.s_box{}
+.s_box th{background-color:#eeeee6; vertical-align:top; padding:1pt 0; font-weight:normal; padding-bottom:10pt;}
+.s_box th a{display:block; margin:25pt 4pt 0 4pt; padding:6pt; border-radius:12pt; color:#fff; text-decoration:none; background-color:#999; white-space:nowrap; text-align:center;}
+.s_box th a.selected{background-color:#eb7836;}
+.s_box td{background-color:#fff; vertical-align:top; padding-bottom:10pt;}
+.s_box ul{padding-left:6pt;}
+.s_box li{color:#999; padding:7pt 0pt; border-bottom:1pt #b5b5b5 solid;}
+
+
+/*酒店列表*/
+.hotelList{background-color:#fff;padding:2pt 0 40pt 0;}
+.hotelList ul{margin:0 8px;}
+.hotelList li{border-bottom:1pt #b5b5b5 solid; padding:8pt 0 4pt 0; position:relative;}
+.hotelList h3{font-size:14pt; color:#333; line-height:1.25; padding-botom:2pt;}
+.hotelList a,.hotelList a:link{text-decoration:none;}
+.hotelList a h3,.hotelLista:link h3{color:#333; text-decoration:none;}
+.hotelList .uplus{padding:3pt 0 3pt 2pt;}
+.hotelList .uplus img{ height:14pt; vertical-align:top;  margin-right:6pt; width:auto;}
+.hotelList .distance{font-size:10pt; padding:3pt 10pt 1pt 14pt; background-image:url(../images/icon_hotelList_location.png); background-repeat:no-repeat; background-size: auto 12pt; background-position:left 2pt; color:#999;}
+.hotelList a .distance,.hotelList a:link .distance{color:#999; text-decoration:none;}
+.hotelList .price{color:#f08300; font-size:14pt; position:absolute; right:4pt; top:25pt;}
+.hotelList .price em{font-style:normal; font-size:10pt;}
+.HLsiftBar{width:100%; height:32pt;left:0; bottom:4pt; position:fixed;}
+.HLsiftBar .inner{margin:0 5pt;}
+.HLsiftBar table{background-color:#f2f1ef; border-collapse:collapse; text-align:center;}
+.HLsiftBar td{border:1pt #bfbfbf solid; }
+.HLsiftBar a{color:#eb7836; text-decoration:none; display:block;padding:8pt 0;}
+.HLsiftBar a.selected{color:#000;}
+.HLsiftBar i{display:inline-block; background-repeat:no-repeat; background-size:auto 12pt; background-position:left center; font-style:normal; padding-left:14pt; padding-top:2pt;}
+.HLsiftBar i.distance{background-image:url(../images/icon_hoteSift_distance_o.png)}
+.HLsiftBar i.price{background-image:url(../images/icon_hoteSift_price_o.png)}
+.HLsiftBar .selected .distance{background-image:url(../images/icon_hoteSift_distance_b.png)}
+.HLsiftBar .selected .price{background-image:url(../images/icon_hoteSift_price_o.png)}
+
+/*酒店详情*/
+
+.HD{background-color:#e5e5e5;}
+.HD .topInfo{background-color:white; padding:2pt 6pt 8pt 6pt; border-bottom:1pt #bfbfbf solid;}
+.HD h1{font-size:14pt; color:#333; border-bottom:1pt #b5b5b5 solid; padding:12pt 0 5pt 0;}
+.HD .topInfo .im{width:60pt; float:left; margin-top:5pt;}
+.HD .topInfo .r{margin:10pt 0 0 68pt;}
+.HD .r img{width:16pt; height:16pt; vertical-align:top; margin-right:4pt;}
+.HD .r .distance{font-size:10pt; padding:3pt 0 1pt 14pt; margin-top:8pt; background-image:url(../images/icon_hotelList_location.png); background-repeat:no-repeat; background-size: auto 12pt; background-position:left 2pt; color:#999; }
+.HD table{margin-top:6pt;}
+.HD th{color:#333; background-color:#f8f8f8; border-bottom:1pt #e0e0e0 solid; padding:5pt 1pt; line-height:1.25;}
+.HD td{text-align:center; color:#666; padding:5pt 2pt; vertical-align:middle; background-color:#fff;}
+.HD .btnC,.HD .btnG{padding:4pt 3pt; min-width:40pt;}
+.HD .title{color:#333; background-color:#f8f8f8; margin-top:6pt; border-bottom:1pt #e0e0e0 solid; padding:7pt 0 6pt 20pt; background-position:6pt center; background-size:auto 12pt; background-repeat:no-repeat; background-image:url(../images/icon_hd_title_fold.png)}
+.HD .ts{background-image:url(../images/icon_hd_title_extend.png)}
+.HD .txtInfo{background-color:white; padding:5pt 6pt 5pt 10pt; font-size:10pt; line-height:1.5; border-bottom:1pt #bfbfbf solid;}
+.HD .map{background-color:#fff;}
+.HD .map img{width:100%;}
+
+/*填写订单*/
+.OS{}
+.OS .moudel{border-bottom:6pt #e5e5e5 solid; color:#999}
+.OS .moudel .item{border-top:1pt #b5b5b5 solid; padding:8pt 0; margin:0 5pt;}
+.OS .moudel .h{font-weight:bold; color:#333;border-top:0; padding-top:12pt;}
+.OS .moudel .range{padding-left:15pt; padding-top:9pt; border-top:0; background-image:url(../images/icon_date_g.png); background-position:left center; background-repeat:no-repeat; background-size:auto 12pt;}
+.OS .moudel .range em{color:#f08300; font-style:normal}
+.OS .moudel .num{}
+.OS .num{display:inline-block;font-size:14pt; border:1pt #e0e0e0 solid; height:18pt; overflow:hidden; float:right;}
+.OS .num .reduce,.OS .num .add{border-right:1pt #e0e0e0 solid; line-height:18pt; color:#999; text-align:center; padding:0 9pt; background-color:#f8f8f8; display:inline-block; font-style:normal; }
+.OS .num .add{border-right:0;border-left:1pt #e0e0e0 solid;}
+.OS .num .text{border:0; font-size:14pt; width:24pt; line-height:14pt;height:14pt; padding:0; margin:0; text-align:center; padding:0 4pt; color:#333;} 
+.OS .roomtype{float:left; margin-top:3pt;}
+.OS .tbp{border-collapse:collapse;color:#999}
+.OS .tbp td{padding:7pt 5pt;border-bottom:1pt #b5b5b5 solid; }
+.OS .txt{color:#666; text-align:right; font-size:12pt; height:14pt; padding:4pt 12pt 4pt 0; text-indent:15pt; background-image:url(../images/icon_arrow_right.png); background-repeat:no-repeat; background-position:right center; background-size:auto 12pt; color:#666; border:0;}
+.OS .tbcoupon{text-align:left;}
+.OS .tbcoupon td{vertical-align:middle; border-bottom:3pt #e5e5e5 solid;}
+.OS .tbcoupon td.sp{padding:1pt; background-color:#e5e5e5;}
+.OS .tbcoupon a{display:block;; background-repeat:no-repeat; background-position:right center; background-size:auto 12pt; color:#666; border:0; padding:7pt 16pt 7pt 3pt; color:#666; text-decoration:none; margin-right:6pt; background-image:url(../images/icon_arrow_right.png);}
+.OS  .privInner{color:#999; height:14pt; display:block; padding:2pt 4pt 2pt 14pt; background-repeat:no-repeat; background-position:left center; background-size:auto 12pt;}
+.OS .priv .privInner{background-image:url(../images/icon_coupon_1.png)}
+.OS .special .privInner{background-image:url(../images/icon_coupon_2.png)}
+.OS .given .privInner{background-image:url(../images/icon_prvi_given.png)}
+.OS .group .privInner{background-image:url(../images/icon_prvi_group.png)}
+.OS .minus .privInner{background-image:url(../images/icon_prvi_minus.png)}
+.OS .special1 .privInner{background-image:url(../images/icon_prvi_special1.png)}
+.OS .tbcoupon .sld{margin-right:0; background-image:url(../images/bg_r_b_tick_g.png); background-size:20pt; background-position:right bottom;}
+.OS .tbcoupon .selected{background-image:url(../images/bg_r_b_tick_o.png); color:#eb7836}
+#prev,#next{display:inline-block; cursor:pointer}
+
+
+
+
+.OS .special td{vertical-align:middle;}
+.OS .totalinfo td{padding:7pt 5pt;}
+.OS .dsc{background-color:#e5e5e5; font-size:10pt; line-height:1.5; color:#666;padding:8pt 5pt 5pt 20pt; background-image:url(../images/icon_info.png); background-position:5pt 8pt; background-repeat:no-repeat; background-size:auto 12pt;margin:0;}
+.OS .btnbar{padding:12pt 5pt;}
+.OS .btnbar .l{float:none; padding-bottom:5pt;}
+.OS .btnbar .btnC{float:none;}
+.OS .btnbar .l .p{color:#eb7836;}
+.OS .btnbar .l .f{font-size:16pt;}
+.OS .btnbar .l1{float:left; padding-bottom:0; padding-top:6pt;}
+.OS .btnbar .btnC1{float:right;}
+.tbp tr td:nth-child(1),.totalinfo tr td:nth-child(1){width:45%}
+.tbp tr td:nth-child(2),.totalinfo tr td:nth-child(2){padding-left:0; padding-right:0; text-align:left; width:55%;}
+.OS .tbp .txt,.OS .totalinfo .txt{width:100%; padding-left:0; padding-right:0; text-indent:6pt; text-align:left; background-image:none;}
+
+
+
+/*优惠券选择*/
+.Cs-rmd{color:#666; line-height:1.5; padding:10pt 5pt;}
+.Csdate{margin:0 5pt 0 5pt; position:relative; height:1px; z-index:2; bottom:-1pt;}
+.Csdate .tb{}
+.Csdate .tb td{font-size:8pt;border:0; background-color:#fcf6df; vertical-align:top; border-top:3pt #999 solid; color:#999;text-align:center;}
+.Csdate .tb .sl{border-color:#f08300; color:#f08300;/* border-left:1pt #f08300 solid; border-right:1pt #f08300 solid; */}
+.Csdate .tb .sp{background-color:transparent; border-top:0;}
+.Csdate .tb .sp div{width:6pt; }
+.Csdate .item{ position:relative;}
+.Csdate .tb td .uper{height:6pt; position:absolute; left:40%; bottom:-2px; display:none;}
+.Csdate .tb .sl .uper{display:block;}
+
+.Csdate .item .t{padding:4pt 2pt; line-height:1.25}
+.Csdate .item .s{padding:3pt 2pt; line-height:1.25}
+.Csdate .inner{margin:0 12pt; position:relative; overflow:hidden;}
+.Csdate .tbWrap{position:absolute; left:0;}
+.Csdate .btnLeft,.Csdate .btnRight{ height:30pt; width:16pt; display:block; background-size:65%; background-image:url(../images/icon_arrow_left.png); background-repeat:no-repeat; position:absolute; z-index:9; top:2pt; left:-5pt; background-position:center center;}
+.Csdate .btnRight{ right:-5pt; left:auto; background-image:url(../images/icon_arrow_right.png);}
+
+.couponWrap{margin:0 6pt; background-color:#fff; border:1pt #be961e solid; position:relative; z-index:1;}
+.couponWrap td{ }
+
+.coupontb{border-collapse:collapse;}
+.coupontb td{border:4pt #fff solid; border-right:0;}
+.coupontb .tdbtn{background-color:#f6de34; color:#010101; padding:0 2pt; text-align:center; white-space:nowrap;border-right:4pt #fff solid;border-left:0;}
+.coupontb .tdselected{background-color:#ccc; background-image:url(../images/icon_coupon_used.png); background-position:center center; background-size:85% auto; background-repeat:no-repeat;border-right:4pt #fff solid;border-left:0;}
+.coupontb .cpinfo{position:relative;color:white; overflow:hidden; background-color:#f20033;}
+.coupontb .cpinfo p{padding:3pt 4pt; line-height:1.25; font-size:8pt;}
+.coupontb .cpinfo .val{font-size:8pt; text-align:center}
+.coupontb .cpinfo .val span{font-size:16pt;}
+.coupontb .cpinfo .validity{font-size:8pt; line-height:1.5; padding-top:2pt; text-indent:5pt; overflow:hidden; text-overflow:ellipsis; position:absolute; left:0; bottom:0; background-color:rgba(0,0,0,0.8); width:100%; white-space:nowrap}
+.dsc{font-size:10pt; line-height:1.5; color:#666;padding:8pt 5pt 5pt 20pt; background-image:url(../images/icon_info.png); background-position:5pt 8pt; background-repeat:no-repeat; background-size:auto 12pt; margin:5pt;}
+.couponBind{margin:5pt; border:1pt #ccc solid; border-radius:3pt; background-color:#fff;}
+.couponBind .txt{float:left; width:72%; border:0; padding:5pt 0; margin:3pt 0 0 3pt; color:#666;}
+.couponBind .btnC{float:right; padding:6pt 2pt; margin:2pt;}
+.couponBind .def{color:#999;}
+
+
+
+/*预订成功待支付*/
+.revs{}
+.revs h1{color:#239f39; line-height:1.25; padding:6pt 5pt; border-bottom:6pt #e5e5e5 solid; background-color:#fff; text-align:center;}
+.revs h1 span{display:inline-block; padding:3pt 0 3pt 16pt; background-image:url(../images/icon_g_trick.png); background-position:left center; background-repeat:no-repeat; background-size:12pt auto;}
+.revs .info{line-height:1.25; font-size:11pt;margin:0 6pt; padding:10pt 0 0 0;}
+.revs .info p{padding:4pt 0;}
+.revs .btnC{display:block; margin:12pt 6pt; border-radius:15pt; background-color:#eb7836}
+.HLsiftBar i.goon{background-image:url(../images/icon_footBar_goon.png)}
+.HLsiftBar i.order{background-image:url(../images/icon_footBar_order.png)}
+.HLsiftBar i.home{background-image:url(../images/icon_footBar_home.png)}
+
+
+/*订单列表*/
+.orderList{}
+.orderList .nav{background-color:#fff;}
+.orderList .nav td{cursor:pointer; border-bottom:4pt #e5e5e5 solid; padding:6pt 2pt; line-height:1.5; text-align:center;}
+.orderList .nav .selected{border-color:#eb7836; color:#eb7836;}
+.orderList .list{min-height:240pt; margin:0 5pt 0 32pt; padding:10pt 0 12pt 0; border-left:1pt #888 solid;}
+.orderList .list li{margin:12pt  0 0 5pt; background-color:#fff; border-radius:5pt; padding:5pt; position:relative;background-size:36pt 36pt; background-repeat:no-repeat; background-position:right top;line-height:1.25;}
+/*.orderList .list .ostate{width:18pt; height:18pt; background-size:100%; background-repeat:no-repeat; background-position:righ top;}
+*/
+.orderList .list .checked{background-image:url(../images/icon_orderState_checked.png)}
+.orderList .list .checking{background-image:url(../images/icon_orderState_checking.png)}
+.orderList .list .cancel{background-image:url(../images/icon_orderState_cancel.png)}
+.orderList .list h2{padding:3px 0; padding-right:10pt;}
+.orderList .list p{font-size:10pt;  padding:1pt 0; color:#787878}
+.orderList .phone,.orderList .location{display:inline-block; padding:2pt 5pt 0pt 14pt; background-image:url(../images/icon_o_phone.png); background-size:12pt auto; background-repeat:no-repeat; background-position:left center;}
+.orderList .location{background-image:url(../images/icon_o_location.png);}
+.orderList .roomtype{margin-right:8pt;}
+.orderList .aGrenn,.orderList .aGrey{position:absolute; display:block; cursor:pointer; text-decoration:none; font-size:12pt;right:5pt; bottom:4pt; text-align:right; color:#239f39}
+.orderList .aGrey{color:#999;}
+.orderList li.year{padding:0;margin:0;width:4pt; height:4pt;   border-radius:2pt;  background-color:#333; background-image:none;position:relative; left:-2.5pt;}
+.orderList li.year span{font-weight:bold; font-size:8pt; position:absolute; left:-30pt; bottom:-4pt; text-align:right;}
+.orderList .point{position:absolute;width:4pt; height:4pt; border-radius:2pt; background-color:#eb7836; left:-7pt; top:12pt;}
+.orderList .checked .point{background-color:#eb7836;}
+.orderList .cancel .point{background-color:#888;}
+.orderList .point span{font-weight:bold; font-size:8pt; position:absolute; left:-22pt; top:-2pt; text-align:right; color:#999;}
+
+/*订单详情*/
+
+.oDetial{color:#999;padding-bottom:10pt;}
+.oDetial .topInfo{border-bottom:6pt #e5e5e5 solid;  background-color:#fff;}
+.oDetial .item{border-top:1pt #b5b5b5 solid; padding:8pt 0; margin:0 5pt; background-image:url(../images/icon_arrow_right.png); background-repeat:no-repeat; background-position:right center; background-size: auto 12pt; display:block; text-decoration:none;color:#999;}
+.oDetial .h{font-weight:bold; border-top:0; color:#333;font-size:12pt; padding-top:16pt; background:none;}
+.oDetial .item em{padding:3pt 8pt 1pt 15pt; border-top:0;background-position:left 3pt; background-repeat:no-repeat; background-size:auto 12pt; display:inline-block; font-style:normal;}
+.oDetial .addr em{background-image:url(../images/icon_o_location.png)}
+.oDetial .phone em{background-image:url(../images/icon_o_phone.png)}
+.oDetial .p{background-color:#fff; line-height:1.8;}
+.oDetial .p p{background-color:#fff;}
+.oDetial .p .m{margin:0 6pt; padding:5pt 6pt 10pt 6pt;border-bottom:1pt #ccc solid;}
+.oDetial .p .ipt{color:#666;}
+.oDetial .p .wrap{color:#666;font-size:24pt; display:inline-block; padding:0 3pt;}
+.oDetial .p .num{color:#239f39;}
+.oDetial .p td{vertical-align:middle;}
+.oDetial .btnC{display:block; margin:12pt 8pt 0 8pt; padding:7pt;}
+.oDetial .btnF{display:block;  margin:12pt 8pt 0 8pt; text-decoration:none; padding:3pt 0 4pt 0; font-size:14pt; border-radius:4pt; background-color:#fff; color:#eb7836; border:1pt #bfbfbf solid;text-align:center; }
+.oDetial .btnF span{display:inline-block; padding:3pt 0 2pt 16pt; background-image:url(../images/icon_o_cancel.png); background-size:14pt auto; background-repeat:no-repeat; background-position:left center;}
+.oDetial .intotal{text-align:center; color:#666;font-size:10pt;}
+.oDetial .intotal em{font-style:normal; font-weight:bold; color:#eb7836; font-size:18pt;}
+
+/*使用买赠页面*/
+.ugiven{padding-top:2pt;}
+.ugiven a{display:block; margin:3pt 6pt; padding:6pt 12pt 6pt 6pt; line-height:1.5; color:#777; text-decoration:none;border:1pt dashed #ccc;}
+.ugiven a.selected{color:#eb7836; border:1pt #eb7836 solid; background-image:url(../images/bg_r_b_tick_o.png); background-size:20pt; background-repeat:no-repeat; background-position:right bottom;}
+
+/*使用团购券码*/
+.gbCode{}
+.gbCode h2{color:#666; line-height:1.5; padding:10pt 5pt 2pt 5pt; font-weight:normal}
+.gbCode .tb{padding:4pt 0 0 0; margin:3pt 6pt;}
+.gbCode .tb div{display:table-cell; vertical-align:middle; text-align:center; border:1pt #e0e0e0 solid; padding:3pt 0; background-image:url(../images/bg_icon_radioBox.png); background-size:10pt; background-repeat:no-repeat; background-position:5pt 46%; width:49.8%; border-radius:5pt;padding-left:12pt;}
+.gbCode .tb .selected{background-image:url(../images/bg_icon_radioBox_s.png); border:1pt #eb7836 solid;}
+.gbCode .tb div img{height:24pt}
+.gbCode .tb .sp{border:0; margin:0; padding:4pt; background:none;width:auto;}
+.gbCode .tb .end{background:none; border:none;}
+.gbCode .tb input{display:none;}
+
+
+/*补充150207*/
+.header .icoToHome{position:absolute;display:inline-block; background-image:url(../images/icon_footBar_home.png); background-repeat:no-repeat; background-position:1pt center; background-size:auto 20pt; width:38pt; height:36pt; background-position:50% 40%; right:2pt;}
+.OS .btnbar .l{font-size:.75em;}
+.OS .btnbar .l .p {font-size:1.5em;}/*
+@media screen and ( min-width: 639px ) {
+	.btnbar .p_info{display:inline;}
+	.OS .btnbar .l1 {
+		padding-top:5pt;
+	}
+	}
+@media screen and ( max-width: 639px ) {
+	.btnbar .p_info{display:block;}
+	
+	.OS .btnbar .l1 {
+		padding-top:0;
+	}
+}
+*/
+
+
+
+
+
+
+
+
