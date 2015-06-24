@@ -6,60 +6,6 @@
 <title>3-酒店预订</title>
 <script language="javascript" src="js/jquery-1.8.3.js"></script>
 <link rel="stylesheet" type="text/css" href="css/css.css"/>
-<style type="text/css">
-    /*日期控件样式*/
-    .datetb {
-        border-collapse: collapse;
-        font-size: 12pt;
-    }
-
-    .datetb td, .datetb th {
-        text-align: center;
-        line-height: 2.5;
-        vertical-align: middle;
-        color: black;
-        border: 1px #eee solid;
-    }
-
-    .datetb th {
-        background-color: #eee;
-        border-color: #fff;
-    }
-
-    .datetb td {
-        padding: 5pt 0 8pt 0;
-        line-height: 1.5;
-    }
-
-    .datetb td.indate {
-        color: #fff;
-        background-image: url(images/bg_dateselect_in.png);
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-size: auto 100%;
-    }
-
-    .datetb td.outdate {
-        color: #fff;
-        background-image: url(images/bg_dateselect_out.png);
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-size: auto 100%;
-    }
-
-    .datetb td.selected {
-        background-color: #999;
-        color: #fff
-    }
-
-    .datetb .disable {
-        color: #999;
-    }
-
-    .datetb .disabel1 {
-        color: #999;
-    }
-</style>
 <script language="javascript" type="text/javascript" src="js/jQuery.mobileDatePicker.js"></script>
 </head>
 
@@ -109,12 +55,14 @@
 </div>
 <script language="javascript" type="text/javascript">
     $(function () {
-        $.fn.mobileDatePicker({
+        $.mobileDatePicker({
             FromFeild: "#indate",			//开始日期input ID
             ToFeild: "#outdate",		    //结束日期input ID
             dateNow: "",				    //今天日期，建议传入服务器的日期如：2015-02-05 为空默认使用用户端的日期
             getDateFrom: "indateRequest",   //获取url的get方式的日期传参 优先级最大 >> input value值  >> dateNow的值
             getDateTo: "outdateRequest",	//获取url的get方式的日期传参 优先级最大
+            dayLimit:0,
+            callBack:function(){console.log('111')}
         });
     })
 </script>

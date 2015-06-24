@@ -1,6 +1,8 @@
-
-(function ($) {
-    $.fn.extend({
+git/*
+* 移动端双日历组件。
+*/
+;(function ($) {
+    $.extend({
         mobileDatePicker: function (opt) {
             //配置项
             var defaults = {
@@ -9,7 +11,9 @@
                 ToFeild: "#outdate",		    //结束日期input ID
                 dateNow: "",				    //今天日期(建议传入服务器的日期格式：2015-02-03)，默认为获取当前设备的日期
                 getDateFrom: "",   				//获取url的get方式的日期传参
-                getDateTo: ""				    //获取url的get方式的日期传参
+                getDateTo: "",				    //获取url的get方式的日期传参
+                dayLimit:0,                     //区间限制，选完开始时间，结束时间会自动选好，请配数字， 如 1、2 目前只做1
+                callBack:0
             }
 
             var option = $.extend(defaults, opt);
@@ -23,6 +27,8 @@
                 getDateTo = /^\d+\-\d+\-\d+$/.test(getDateTo) ? getDateTo : "",
                 inputFromV = FromFeild.val(),
                 inputToV = ToFeild.val(),
+                dayLimit = option.dayLimit,
+                callBack = opt.callBack,
             //优先级 get > input >(系统时间||服务器时间);
                 fromVal = getDateFrom || inputFromV || getDateNow(),
                 toVal = getDateTo || inputToV || DateTomorow(getDateNow());
@@ -32,7 +38,7 @@
             if(!$('.styleCalendar').length){
                 var cssString = '.calendarHeader{position:relative; line-height:34pt; font-size:16pt; font-family:"微软雅黑"; color:#eb7836; background-color:#f2f1ef; text-align:center; border-bottom:2pt #eb7836 solid; padding-top:2pt;}'+
                     '.calendarHeader .back{position:absolute; display:block; cursor:pointer; width:38pt; height:36pt; left:0; top:0; background-repeat:no-repeat; background-position: center center; background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACHCAYAAACRZlKjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3QUFEQ0Y4M0IyNjBFNDExODZCQ0I0NDk3MDA5MUYzOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NkQ2NjVGQjYwRDQxMUU0OTU1N0JFMDRGMjA1NzVDOCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NkQ2NjVGQTYwRDQxMUU0OTU1N0JFMDRGMjA1NzVDOCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3QUFEQ0Y4M0IyNjBFNDExODZCQ0I0NDk3MDA5MUYzOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3QUFEQ0Y4M0IyNjBFNDExODZCQ0I0NDk3MDA5MUYzOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjigqVMAAAR/SURBVHja7N1hpN9VHMfxs27icokpRlxGLDFilFK6SmmKlKWU5U7pwSyllCaW9uROKaWU0pRSSiOllBI3ZVkaMSJGXOJSIo2I/Pt+/c598t+5z/7nv3Rfbz4Pds6Tu6+33+9/zu/8vr9No9GoAGeKs5QABAQBAQKCgAABQUCAgCAgQEAQECAgCAgQEAQECAgCAgQEAQECgoAAAUFAgIAgIEBAEBAgIAgIEBAEBAgIAoKAAAFBQICA2FicvVH/47/tv+w/9fect3TMFRAg4P+b2chLkT8j30d2uAVjWmyOfBy5vP475Xs7chEB0Zv5yOeRbY1xt2B0ZXvkaEO+5C0CoidXR76OXLCOfPcTEL3YVW+75zbmno7cHfmbgOjBvsj7kXMac3nVe1SJLEJ6sRR5rDGeV7u7IkeUiIA9yKvdK5HFxtypyE2Rr5SJgD2Yq7fcGxpzq5HrIyeUiYA9OL8MG8yXNuZ+qvKtKJNFSA+2lmGPryXft5EryEfAXuyo8l3YmPsocm3kd2UiYA+uiSxHtjTmDkdujfylTATswZ2RT+vCY5yDkXsj/yiTRUgPHoo80xhP4fZGXlUiAvbiucgDjfG81d5Rf/eBgBMnN5hfr7fecXKRcXPkG2UiYA/yd96HddExTm6v7Iz8qEwE7MGWuti4pDF3osr3izJZBfcg9/aOrSNfPs+9inwE7EU+1cgN5tZx+SP1yveHMhGwB3mYYLkMz3fHebGudm0wE7ALi2U4VDDbmNtfhoOkNpgJ2IU8QJpbLTNj43mIdE/kkBJZBfeUb6kxnrfafKb7mRIRsCePN8Z+LcMJ5u+Uxy24NzONMb/1CDg1DjbGchP6y8h1ykPA3hyqq9xx5uqqeLcSEXAaEu5p3HrzIMKbkUeUiIC9eaMuPFobzU9FXlAiAvYmt1wW6ip4nOx28G5pdzsAASdGbr3k22w/N+ZuL0O/lzllImBPTlYJjzfmsuPV0dJ+IQkEnBir9Xb8RWMue/7lca1tykTAnqz1dHmnMTdf1n8pHQScGGtdrZ5tzGXf5+XIjcpEwN48HHmwMZ7Ht/K9kXuUiIC9eb4Mh1LHO5vm8+TXIgeUiIC9ea8MHa9ONeaeLEOPwBllImBP1l5MWm3M3VeGXoGzykTAnvwQyQ/OnWzM3VKGDevNykTAnqxUCVsHV68swyca5pWJgD3J9hwLkU8acxeXYa9wuzIRsCd5giZ7xBxuzOVHapbL8AgPBOxGniXM3oCtE9b5WzDbfOxSJgL25oky9AocP9yaq+I8zrVPiQjYm5cjt5XTD7fm/mAebF1SIgL25oMybFi3GpWv9yI8ATFRsnFlbli3PtWwWIavpxMQXckGlnm4tfWlpN0ExDTIXoIL5fRvxa0QENMifwvurAuUPMhwvC5UNjR6w0yXXBXvrYErIM40m0ajkSrAFRAEBAgIAgIEBAEBAoKAAAFBQICAICBAQBAQICAICBAQBAQICAICBAQBAQKCgAABQUCAgCAgQEAQECAgCAgCAgQEAQECgoAAAbEB+FeAAQDLvqF8zUBhjgAAAABJRU5ErkJggg=="); background-size: auto 100%;-webkit-background-size: auto 100%;}'+
-                    '.datetb{border-collapse: collapse; font-size: 12pt;} .datetb td, .datetb th{text-align: center; line-height: 2.5; vertical-align: middle; color: black; border: 1px #eee solid;} .datetb th{background-color: #eee; border-color: #fff;} .datetb td{padding: 5pt 0 8pt 0; line-height: 1.5;} .datetb td.indate{color: #fff; background-image: url(images/bg_dateselect_in.png); background-repeat: no-repeat; background-position: center top; background-size: auto 100%;} .datetb td.outdate{color: #fff; background-image: url(images/bg_dateselect_out.png); background-repeat: no-repeat; background-position: center top; background-size: auto 100%;} .datetb td.selected{background-color: #999; color: #fff} .datetb .disable{color: #999;} .datetb .disabel1{color: #999;}';
+                    '.datetb{border-collapse: collapse; font-size: 12pt;} .datetb td, .datetb th{text-align: center; line-height: 2.5; vertical-align: middle; color: black; border: 1px #eee solid;} .datetb th{background-color: #eee; border-color: #fff;} .datetb td{padding: 5pt 0 8pt 0; line-height: 1.5;} .datetb td.indate{color: #fff; background-image: url(images/bg_dateselect_in.png); background-repeat: no-repeat; background-position: center top; background-size: auto 100%;} .datetb td.outdate{color: #fff; background-image: url(images/bg_dateselect_out.png); background-repeat: no-repeat; background-position: center top; background-size: auto 100%;} .datetb td.selected{background-color: #999; color: #fff} .datetb .disable{color: #999;} .datetb .disabel1{color: #999;}.calendarHeader span{position:relative;}';
                 $('body').append('<style class="styleCalendar">'+cssString+'</style>');
             }
             $("body").append('<div id="' + picker + '" style="position:absolute; display:none; left:0; top:0; z-index:999; width:100%; background:#fff;"><div class="calendarHeader"><a class="back" href="javascript:void(0)"></a><span></span></div></div>');
@@ -143,16 +149,17 @@
                 return date.getFullYear() + "-" + m + "-" + d;
             }
 
-            /*function selectTomorrrow() {//table上根据入住日选择明天
-             var inindex = $(".datetb td").index($(".datetb .indate").eq(0));
-             for (i = 1; i <= 7; i++) {
-             if (!($(".datetb td").eq(inindex + i).hasClass("disable"))) {
-             $(".datetb .outdate").removeClass("outdate");
-             $(".datetb td").eq(inindex + i).addClass("outdate");
-             break;
-             }
-             }
-             }*/
+            //table上根据入住日选择明天
+            function selectTomorrrow() {
+                var inindex = $(".datetb td").index($(".datetb .indate").eq(0));
+                for (i = 1; i <= 7; i++) {
+                    if (!($(".datetb td").eq(inindex + i).hasClass("disable"))) {
+                        $(".datetb .outdate").removeClass("outdate");
+                        $(".datetb td").eq(inindex + i).addClass("outdate");
+                        break;
+                    }
+                }
+            }
             //返回事件
             _thisCalendar.find('.back').click(function(){
                 _thisCalendar.hide();
@@ -200,31 +207,52 @@
                 if(_this.hasClass('disable')){
                     return;
                 }
-                if(indateTdObj.length && outdateTdObj.length){
+                //限制区间日数，自动选择结束日期时。
+                if(dayLimit){
                     indateTdObj.removeClass('indate');
                     outdateTdObj.removeClass('outdate');
                     _this.addClass('indate');
+                    selectTomorrrow();
+                    _thisCalendar.attr('locked','1');
+                }
+                //正常双日历开始日期入口
+                if(indateTdObj.length && outdateTdObj.length && !dayLimit){
+                    indateTdObj.removeClass('indate');
+                    outdateTdObj.removeClass('outdate');
+                    _this.addClass('indate');
+                    $('.calendarHeader span').animate({top:-60,opacity:0},300, function(){
+                        $('.calendarHeader span').html("请选离店日期").animate({top:0,opacity:1},300);
+                    });
                     return;
                 }
                 if(indateTdObj.length && !outdateTdObj.length){
                     if($('.datetb td').index(_this) > $('.datetb td').index($('.datetb .indate').eq(0))){
                         _this.addClass('outdate');
                         _thisCalendar.attr('locked','1');
-                        setTimeout(function(){
-                            _thisCalendar.hide();
-                            _thisCalendar.removeAttr('locked');
-                        },400);
-                        fillDateToInput("indate");
-                        fillDateToInput("outdate");
                     }
                 }
+                fillDateToInput("indate");
+                fillDateToInput("outdate");
+                setTimeout(function(){
+                    _thisCalendar.hide();
+                    var run = callBack?callBack() : 0;
+                    _thisCalendar.removeAttr('locked');
+                },400);
 
             });
 
             FromFeild.click(function () {
+                var span = $('.calendarHeader span');
                 $(this).blur();
-                $("#" + picker + " span").html("选择入住日期");
-                $("#" + picker).show();
+                span.html("请选入住日期");
+                if(!dayLimit){
+                    span.css({top:-60,opacity:0});
+                    _thisCalendar.show();
+                    span.animate({top:0,opacity:1},300);
+                }
+                else{
+                    _thisCalendar.show();
+                }
                 markAsSelect(FromFeild.val(), "indate");
                 markAsSelect(ToFeild.val(), "outdate");
             })
