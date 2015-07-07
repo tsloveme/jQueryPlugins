@@ -61,8 +61,8 @@
             dateNow: "",				    //今天日期，建议传入服务器的日期如：2015-02-05 为空默认使用用户端的日期
             getDateFrom: "indateRequest",   //获取url的get方式的日期传参 优先级最大 >> input value值  >> dateNow的值
             getDateTo: "outdateRequest",	//获取url的get方式的日期传参 优先级最大
-            dayLimit:1,
-            callBack:function(){console.log('111')}
+            dayLimit:1,                     //区间日期限制
+            callBack:function(){console.log('111')}//回调函数
         });
     })
 </script>
