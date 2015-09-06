@@ -230,6 +230,9 @@
                         _this.addClass('outdate');
                         _thisCalendar.attr('locked','1');
                     }
+                    else{
+                        return;
+                    }
                 }
                 fillDateToInput("indate");
                 fillDateToInput("outdate");
