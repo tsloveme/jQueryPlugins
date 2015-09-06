@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>inner2</title>
+<link type="text/css" rel="stylesheet" href="jquery_dialog.css" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+<!--
+//注：每个嵌入页必须定义该方法，供父窗口调用，并且返回true或false来告之父窗口是否关闭
+function Ok(){
+
+	//相关逻辑代码
+	//...
+	
+	//POST
+	document.forms[0].submit();
+}
+//-->
+</script>
+</head>
+<body style="margin:0px;padding:0px;">
+<form action="serverPost2.html">
+<table width="300" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="150" height="150" align="center" valign="middle" bgcolor="#99FF00">
+    	<!--<input type="button" value="open_" onclick="JqueryDialog.Open('模态DIV1', 'inner1.html', 300, 300);" />-->
+        </td>
+    <td width="150" height="150" align="center" valign="middle" bgcolor="#9966CC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="150" height="150" align="center" valign="middle" bgcolor="#FFCCCC">&nbsp;</td>
+    <td width="150" height="150" align="center" valign="middle" bgcolor="#9999FF">&nbsp;</td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

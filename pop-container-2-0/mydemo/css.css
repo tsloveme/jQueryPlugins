@@ -1,0 +1,16 @@
+/*我自定义的窗体样式*/
+.addWin{width:450px; padding:0 0 15px 0;}
+.addWin .colorBtn{height:18px; line-height:18px; overflow:hidden; font-size:12px; color:white; border:1px #2f62c0 solid; background-color:#5b8de8; cursor:pointer; padding:0 6px 1 6px;}
+.addWin .colorBtnOver{border:1px #144cb3 solid; background-color:#4875c7;}
+.addWin .title{height:30px; line-height:30px; padding:0 8px; background:url(images/areaQuoteRp.png) repeat-x;}
+.addWin h3{width:100px; float:left;}
+.addWin .close{width:16px; height:16px; overflow:hidden; background-image:url(images/WinClose.gif); background-repeat:no-repeat; float:right; margin-top:6px; cursor:pointer;}
+.addWin .closeHover{background-position:0 -16px;}
+.winBtn{width:57px; height:30px; font-size:14px; font-weight:bold; background-image:url(images/WinBtn.gif); background-repeat:no-repeat; border:0; overflow:hidden; color:#2b2b2b; cursor:pointer; color:white;}
+.winBtn{background-color:transparent;}
+.winBtnCl{background-position:left -30px; margin-left:15px; color:black;}
+.addWin table{border-collapse:collapse; font-size:12px; color:#333;}
+.addWin td{padding:8px 3px;}
+.addWin .tdl{text-align:right;}
+.addWin select{height:23px; padding:2px;}
+.addWin .adTxt{height:19px; line-height:19px; padding-left:4px;}

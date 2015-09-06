@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title></title>
+	<script type="text/javascript" src="js/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="js/jQuery.inputTips.js"></script>
+	<style type="text/css">
+	*{margin:0; padding: 0;}
+	body{padding:25px;}
+	table{border-collapse:collapse;}
+	td{border:1px #e0e0e0 solid; padding:15px 4px;}
+	tr td:nth-child(1){text-align:right;}
+	input{border-top:1px #999 solid; border-left:1px #999 solid; border-right:1px #E0E0E0 solid; border-bottom:1px #E0E0E0 solid; font-family:"arial"; font-size:14px; height:16px; line-height:16px; padding:4px 2px;}
+	pre{display:inline-block; padding-left:12px;}
+	</style>
+</head>
+<body>
+<br /><br /><br /><br /><br />
+<h1>基于jquery的文本框输入的放大预览插件inputTips</h1><br />
+<table cellspacing="0" cellpadding="0" border="0" width="80%">
+	<tr>
+		<td width="150">请输入你想要的钱数</td>
+		<td><input id="test1" type="text" value="" /><pre>$("#test1").inputTips();</pre></td>
+	</tr>
+	<tr>
+		<td>手机号码</td>
+		<td><input id="test2" type="text" value="" /><pre>$("#test2").inputTips({type:"cellPhone"});</pre></td>
+	</tr>
+	<tr>
+		<td>身份证</td>
+		<td><input id="test3" type="text" value="" /><pre>$("#test3").inputTips({type:"identity"});</pre></td>
+	</tr>
+	<tr>
+		<td>银行卡号</td>
+		<td><input id="test4" type="text" value="" /><pre>$("#test4").inputTips({type:"bankCard"});</pre></td>
+	</tr>
+</table>
+<script type="text/javascript">
+$(function(){
+	$("#test1").inputTips();//默认参数
+	$("#test2").inputTips({type:"cellPhone"});//手机类型
+	$("#test3").inputTips({type:"identity"});//身份证类型
+	$("#test4").inputTips({type:"bankCard"});//银行卡类型
+})
+</script>
+</body>
+</html>

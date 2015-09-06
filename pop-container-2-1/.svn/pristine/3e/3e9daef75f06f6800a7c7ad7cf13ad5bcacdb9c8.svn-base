@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>ppDrag</title>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js" type="text/javascript"></script>
+
+	<script src="jquery.ppdrag.js" type="text/javascript"></script>
+	
+	<style type="text/css">
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: white;
+			color: black;
+		}
+		.left {
+			float: left;
+		}
+		.clear {
+			clear: both;
+		}
+		.dragbox {
+			width: 200px;
+			height: 60px;
+			border: 1px solid blue;
+			margin: 10px 10px 10px 100px;
+			background: yellow;
+			text-align: center;
+			position: relative;
+		}
+		.codebox {
+			font-family: "Courier New", Courier, monospace;
+			border: 1px dashed blue;
+			padding: 2px;
+			margin: 3px;
+			color: green;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#box-ppdrag").ppdrag();
+			$("#box-ui-draggable").draggable();
+		});
+	</script>
+</head>
+
+<body>
+	<h1 style="margin-bottom: 3px; margin-top: 3px;">ppDrag</h1>
+	<h6 style="margin-top: 3px;"><a href="http://ppdrag.ppetrov.com/">Extremely Fast JavaScript Drag'n'Drop</a></h6>
+	<p>
+		ppDrag is a Drag&amp;Drop plugin for <a href="http://jquery.com/">jQuery</a>, which mimics the interface 
+		of <a href="http://ui.jquery.com/">jQuery UI</a>'s <a href="http://docs.jquery.com/UI/Draggables">Draggable</a>. Currently
+		supported is a small subset of its options, but the implementation is different (ppDrag
+		focuses on performance). Drag the two boxes below while watching your CPU usage to see the 
+		differences in their speed:
+	</p>
+
+	<div class="left">
+	</div>
+	<div class="left">
+		<div class="dragbox" id="box-ppdrag">ppDrag</div>
+		<div class="dragbox" id="box-ui-draggable">jQuery.UI.draggable</div>
+	</div>
+	<div class="clear"></div>
+	
+	<p>
+		The speed difference is more visible with slower CPU's. If you have a fast processor which supports SpeedStep or a similar technology, you can try lowering its frequency.
+		Also, due to JavaScript engine optimizations in the last generation browsers, the speed difference is less than with older browsers. 
+		For example, the difference is greater with Firefox 2 than with Firefox 3.
+	</p>
+	<p>
+		All major existing browsers are supported. This includes IE6/7, Firefox1/2/3, Opera, Konqueror, Safari, and probably others.
+	</p>
+	
+	<h4 style="margin-bottom: 3px;">Download:</h4>
+	<p style="margin-top: 3px;">
+		ppDrag is licensed under the <a href="LGPL-LICENSE.txt">LGPL</a> license<br /><br />
+		Latest version <em>(0.2)</em>: <a href="jquery.ppdrag.js">jquery.ppdrag.js</a><br />
+		All downloads: <a href="http://code.google.com/p/ppdrag/downloads/list">http://code.google.com/p/ppdrag/downloads/list</a><br />
+		Subversion: <a href="http://code.google.com/p/ppdrag/source/checkout">http://code.google.com/p/ppdrag/source/checkout</a>
+	</p>
+	
+	<h4 style="margin-bottom: 3px;">Usage:</h4>
+	<ol style="margin-top: 3px;">
+		<li>
+			Include <a href="http://jquery.com/">jQuery</a>:
+			<div class="codebox">&lt;script src="jquery.js" type="text/javascript"&gt;&lt;/script&gt;</div>
+		</li>
+		<li>
+			Include ppDrag:
+			<div class="codebox">&lt;script src="jquery.ppdrag.js" type="text/javascript"&gt;&lt;/script&gt;</div>
+		</li>
+		<li>
+			Activate ppDrag. Example:
+			<div class="codebox">
+				$(document).ready(function() {<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;$("#element1").ppdrag();<br />
+				});<br />
+			</div>
+			<em>Note</em>: at the moment ppDrag doesn't support elements with static positioning.
+			Please use either relative, absolute, or fixed positioning.
+		</li>
+		<li>
+			<i>(optional)</i> Specify options. Example:
+			<div class="codebox">
+				$(document).ready(function() {<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;$("#element2").ppdrag({ zIndex: 1000 });<br />
+				});<br />
+			</div>
+		</li>
+		<li>
+			<i>(optional)</i> When no longer needed, you can deactivate ppDrag. Example:
+			<div class="codebox">
+				$("#element2").ppdrag("destroy");<br />
+			</div>
+		</li>
+	</ol>
+
+	<h4 style="margin-bottom: 3px;">Supported options:</h4>
+	<ul style="margin-top: 3px;">
+		<li>
+			<b>zIndex</b>: <i>[integer]</i> z-index for the element while being dragged.
+		</li>
+		<li>
+			<b>stop</b>: <i>[function(element)]</i> Function that gets called when dragging stops.
+		</li>
+	</ul>
+
+	<h4 style="margin-bottom: 3px;">History:</h4>
+	<ul style="margin-top: 3px;">
+		<li>
+			<b>Version 0.1</b> <i>(2008-04-03)</i>:<br />
+			Initial release
+		</li>
+		<li>
+			<b>Version 0.2</b> <i>(2008-08-26)</i>:<br />
+			Fixed cancelling IE's default event action didn't work;<br />
+			Callbacks (only 'stop' for now) receive the element both as 'this' and as an argument, just like jQuery UI Draggable;<br />
+			Updated jQuery UI version used in this demo to 1.5.2. It has received many optimizations and is now signifficantly faster than before (though still not as fast as ppDrag);
+		</li>
+	</ul>
+
+	<h4 style="margin-bottom: 3px;">ToDo:</h4>
+	<ul style="margin-top: 3px;">
+		<li>
+			<del>Seems like IE's default actions are not prevented properly while handling mouse events. Investigate and fix.</del>
+		</li>
+		<li>
+			Add support for <i>start</i> and <i>drag</i> callbacks
+		</li>
+		<li>
+			Add explicit support for static-positioned elements (currently supported are absolute, relative, fixed)
+		</li>
+		<li>
+			Add support for more of jQuery UI Draggable's options
+		</li>
+		<li>
+			<i>(possibly)</i> Add Droppables
+		</li>
+	</ul>
+
+	<h4 style="margin-bottom: 3px;">Contact:</h4>
+	<p style="margin-top: 3px;">
+		Copyright (c) 2008, Peter Petrov<br />
+		The author can be contacted at email: <i>ppetrov(at)ppetrov.com</i><br /><br />
+		Bugs and feature requests should be reported at the <a href="http://code.google.com/p/ppdrag/issues/list">issue tracker</a>.<br /><br />
+	</p>
+
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>pop_container Jquery简易弹窗插件2.0-ui笔记 | 我的UI笔记&#8230;</title>
+<meta name="keywords"  content="javascript弹窗，jquery弹窗插件，可自定的弹窗插件，jquery很简单的弹窗插件" />
+<meta name="description"  content="我的原创弹窗插件，很简单，代码通俗易懂，方便您的学习和二次开发" />
+<script type="text/javascript" src="js/jquery-1.5.min.js"> </script>
+<script type="text/javascript" src="js/jquery.pop_container.2.0.js"> </script>
+<style type="text/css">
+/*初始化
+www.uinote.cn
+*/
+body{}
+.clearfix:after{content:"."; display:block; clear:both; line-height:0; font-size:0; height:0; overflow:hidden; visibility:hidden;}
+.clearfix{*zoom:1;}
+.clear{display:block; height:0; font-size:0; line-height:0; visibility:hidden; overflow:hidden; clear:both;}
+p,ul,li,body,h1,h2,h3,h4,h5,h6,dl,dd,form,input,li,dd{margin:0; padding:0;}
+body{font-size:12px; color:#333; font-family:/*Arial,*/"宋体";}
+h2,h3,h4,h5,h6{font-size:14px;}
+img{border:none}
+a,a:link{color:#333; text-decoration:none;}
+a:hover{color:#5959FF; text-decoration:underline;}
+.main{margin:15px 50px;}
+h1{text-align:center; font-family:微软雅黑; font-weight:normal; padding-bottom:25px;}
+#content{line-height:19px;}
+.sp999{color:#999;}
+h2{height:21px; line-height:21px; padding-left:6px; background-color:#e0e0e0;}
+input[type="button"]{background-color:blue; color:white; border:0; padding:5px; font-size:14px;}
+.main .winBtnCl,body .winBtnCl{color:black;}
+</style>
+</head>
+<body>
+<div class="main"> </div>
+<div class="main" id="ts2"> </div>
+<div id="content" class="main" style="padding:20px; font-size:14px; border:5px #F5F5F5 solid;">
+<h1>pop_container Jquery简易弹窗插件 2.0</h1>
+	<img src="img/04.png" alt="Jquery简易弹窗插件，jquery弹窗插件教程，jquery插件教程" />
+  <p>&nbsp;</p>
+  <p>● <strong>1.0功能详解：</strong><a style="color:blue; text-decoration:underline;" href="#demoStart">直接看DEMO</a><br />
+  </p>
+  <ol>
+    <li>兼容ie5.5+ 和遵循W3C标准的浏览器</li>
+  <li>代码大小1.93K（jquery.pop_container.min.js） 非常小巧</li>
+  <li>非常方便自定义插件样式，插件css和html代码分离。</li>
+  <li>有开发文档注释提供参考。方便您的二次开发和完善。可扩展性强。</li>
+  <li>插件是原创，本人的第一个jquery插件，应该可以做得很强大，因为简单所以易懂，高手手下留情。</li>
+</ol>
+  <p>● <strong style="color:red;">2.0的变化：</strong><br />
+  </p>
+  <ol>
+    <li>插件css样式整合到了插件代码中，取消了1.0版的样式表</li>
+	<li>新增拖拽功能(默认可拖拽)。可设置拖拽的触点元素,默认是border(弹窗的半透明的的边栏)</li>
+	<li>可在参数自定义弹窗border<b>边框颜色</b>和<b>透明度</b></li>
+	<li>可设置是否显示背景遮罩层,以及背景遮罩层的颜色和透明度</li>
+	<li>定位索引设置：z-index的参数以背景遮罩为准，向上逐层+1，默认设置是9997。</li>
+    <li>取消了1.0版本的css样式，封装到了插件中，但也不缺乏可塑性，参数设置丰富，你值得拥有。</li>
+</ol>
+  <p><strong>这是自定义的盒子内容的代码，事先是隐藏的</strong></p>
+  <p><img src="img/01.png" /></p>
+  <p><strong>下图是插件起效后 firebug看到的代码节构</strong> ( 除了#test1标记是自定义的外，其他html元素都是插件动态加上的 )</p>
+  <p>&nbsp;</p>
+  <p><img src="img/02.png" /></p>
+  <p>&nbsp;</p>
+  <p><strong>关闭弹窗后，自定义的#test1弹窗内容还在，就是被隐藏了，插件生成的html代码被删除。</strong></p>
+  <p>&nbsp;</p>
+  <p><img src="img/05.png" /></p>
+  <p>&nbsp;  </p>
+  <h2>参数说明</h2>
+  <pre>
+	$("#pop_open").click(function(){
+		$("#test1").pop_container({
+			btnClose 		 :"",			//设置其他关闭按钮	如:"#btnClose, .close1" 
+			toggle    		 :true, 		//是否显示右上角关闭	建议你自己定义个样式  
+			scrollWith		 :true,			//随滚动条滚动？
+			bdColor			 :"#000",		//边框颜色
+			bdOpacity	   	 :0.4,			//边框透明度
+			hasBg			 :true,		   	//是否启背景遮罩
+			bgColor			 :"#000",		//背景色
+			bgOpacity		 :0.4,			//背景透明度，1为不透明
+			zIndex			 :9997,			//最外层索引(背景遮罩)
+			dragble			 :true,			//是否可拖动
+			dragHandle		 :""			//拖动触发点，默认是本身
+		})
+          })</pre> 
+  <h2 id="demoStart">调用示例1</h2>
+  <pre>
+  //默认参数调用
+	$("#pop_open").click(function(){
+		$("#test1").pop_container()
+		})</pre> 
+<!--以下是事先隐藏的弹窗代码-以下代码完全可自定义样式-->
+  <div id="test1" style="width:600px; display:none">
+	<div style="line-height:25px; padding:10px; font-size:14px; color:#333;">
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    </div>
+</div>
+<!--弹窗窗体结束-->
+<p> 
+<input type="button" id="pop_open" value="弹窗示例1" />
+<script language="javascript">
+	$("#pop_open").click(function(){
+		$("#test1").pop_container()
+		})
+</script>
+</p>
+<p>&nbsp;</p>
+<h2>调用示例2</h2>
+<pre>
+	$("#pop_open2").click(function(){
+		$("#test2").pop_container({
+			btnClose:"#cls2",	//关闭按钮：#cls2
+			scrollWith:false, 	//随窗口滚动？不
+			toggle:false 		//显示插件自带按钮？不
+			})
+		})</pre> 
+<!--以下是事先隐藏的弹窗代码-以下代码完全可自定义样式-->
+<div id="test2" style="width:600px; display:none">
+	<div style="line-height:25px; padding:10px; font-size:14px; color:#333;">
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+        <input type="button" id="cls2" value="关闭按钮" />
+    </div>
+</div>
+<!--弹窗窗体结束-->  
+<p>
+<input type="button" id="pop_open2" value="弹窗示例2" />
+<script language="javascript">
+	$("#pop_open2").click(function(){
+		$("#test2").pop_container({
+			btnClose:"#cls2", //自定义关闭按钮为#cls2,当然也可以多个按钮
+			scrollWith:false, //弹窗后，没有随屏幕滚动移动
+			toggle:false  //是否显示插件自带开关
+			})
+		})
+</script>
+
+</p>
+<p>&nbsp;</p>
+<h2>调用示例3</h2>
+<pre>
+	$("#pop_open3").click(function(){
+		$("#test3").pop_container({
+			btnClose:"#cls31,#cls32", 
+			scrollWith:true, 
+			toggle:true  
+			})
+		})</pre> 
+<!--以下是事先隐藏的弹窗代码-以下代码完全可自定义样式-->
+<div id="test3" style="width:600px; display:none">
+	<div style="line-height:25px; padding:10px; font-size:14px; color:#333;">
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+        <input type="button" id="cls31" value="关闭按钮31" />
+        <input type="button" id="cls32" value="关闭按钮32" />
+    </div>
+</div>
+<!--弹窗窗体结束-->  
+<p>
+<input type="button" id="pop_open3" value="弹窗示例3" />
+<script language="javascript">
+	$("#pop_open3").click(function(){
+		$("#test3").pop_container({
+			btnClose:"#cls31,#cls32", 
+			scrollWith:true, 
+			toggle:true  			
+			})
+		})
+</script>
+
+</p>
+<p>&nbsp;</p>
+<h2>调用示例4 <span style="font-size:12px; color:#999;">我自己美化的，，你懒得动手就用这个吧，， 看起来很不错！</span></h2>
+<pre>
+	$("#pop_open4").click(function(){
+		$("#my-demo").pop_container({
+			btnClose:"#my-demo .close,.winBtnCl", 
+			scrollWith:true, 
+			toggle:false  
+			})
+		})</pre>
+<link rel="stylesheet" type="text/css" href="mydemo/css.css" /> 
+<div class="addWin" id="my-demo" style="display:none">
+	<div class="title">
+    	<span class="close" onmouseover="this.className='close closeHover'" onmouseout="this.className='close'"></span>
+    	<h3>地区报价</h3>
+    </div>
+	<table width="100%"  cellpadding="0" cellspacing="0" border="0">
+    	<tr>
+        	<td class="tdl">交货地:</td>
+        	<td>
+            	<select name="province">
+                	<option value="11">北京市</option>
+                	<option value="11">广东省</option>
+                	<option value="11">北京市</option>
+                	<option value="11">广东省</option>
+                	<option value="11">北京市</option>
+                	<option value="11">广东省</option>
+                	<option value="11">北京市</option>
+                	<option value="11">广东1111111省</option>
+                </select>
+            	<select name="city">
+                	<option value="11">北京市</option>
+                	<option value="11">深圳市1111 </option>
+                	<option value="11">北京市</option>
+                	<option value="11">深圳市 </option>
+                	<option value="11">北京市</option>
+                	<option value="11">深圳市 </option>
+                	<option value="11">北京市</option>
+                	<option value="11">深圳市 </option>
+                </select>
+                
+            </td>
+        </tr>
+    	<tr>
+        	<td class="tdl">价&nbsp;&nbsp;&nbsp;&nbsp;格:</td>
+        	<td><input type="text" class="adTxt" name="" /></td>
+        </tr>
+    	<tr>
+        	<td class="tdl"></td>
+        	<td>
+            	<input type="button" class="winBtn" name="ok" value="保存" />
+            	<input type="button" class="winBtn winBtnCl" name="ok" value="取消" />
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="addWin" id="testtt"  onclick="myFade('testtt',100,100)"  style="border:1px #ccc solid; filter:alpha(opacity=40)">
+	<div class="title">
+    	<span class="close" onmouseover="this.className='close closeHover'" onmouseout="this.className='close'"></span>
+    	<h3>地区报价</h3>
+    </div>
+	<table width="100%"  cellpadding="0" cellspacing="0" border="0">
+    	<tr>
+        	<td class="tdl">交货地:</td>
+        	<td>
+            	<select name="province">
+                	<option value="11">北京市</option>
+                	<option value="11">广东省</option>
+                	<option value="11">北京市</option>
+                	<option value="11">广东省</option>
+                	<option value="11">北京市</option>
+                	<option value="11">广东省</option>
+                	<option value="11">北京市</option>
+                	<option value="11">广东1111111省</option>
+                </select>
+            	<select name="city">
+                	<option value="11">北京市</option>
+                	<option value="11">深圳市1111 </option>
+                	<option value="11">北京市</option>
+                	<option value="11">深圳市 </option>
+                	<option value="11">北京市</option>
+                	<option value="11">深圳市 </option>
+                	<option value="11">北京市</option>
+                	<option value="11">深圳市 </option>
+                </select>
+                
+            </td>
+        </tr>
+    	<tr>
+        	<td class="tdl">价&nbsp;&nbsp;&nbsp;&nbsp;格:</td>
+        	<td><input type="text" class="adTxt" name="" /></td>
+        </tr>
+    	<tr>
+        	<td class="tdl"></td>
+        	<td>
+            	<input type="button" class="winBtn" name="ok" value="保存" />
+            	<input type="button" class="winBtn winBtnCl" name="ok" value="取消" />
+            </td>
+        </tr>
+    </table>
+</div>
+ 
+<p><br />
+<input type="button" id="pop_open4" value="弹窗示例4" />
+<script language="javascript">
+	$("#pop_open4").click(function(){
+		$("#my-demo").pop_container({
+			btnClose:"#my-demo .close,.winBtnCl", 
+			scrollWith:true, 
+			toggle:false,
+			dragble:true,
+			dragHandle:"#my-demo .title",
+			hasBg:true
+			})
+		})
+</script>
+</p>
+<p>&nbsp;</p>
+<h2>调用示例5</h2>
+<pre>
+	$("#pop_open5").click(function(){
+		$("#test5").pop_container({
+			btnClose:"#cls5",	//关闭按钮：#cls5
+			scrollWith:false, 	//随窗口滚动？不
+			toggle:false, 		//显示插件自带按钮？不
+			bgColor:#fff,		//背景遮罩层颜色
+			bgOpacity:0.9		//背景遮罩层透明度			
+			})
+		})</pre> 
+<!--以下是事先隐藏的弹窗代码-以下代码完全可自定义样式-->
+<div id="test5" style="width:600px; display:none">
+	<div style="line-height:25px; padding:10px; font-size:14px; color:#333;">
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+    	<p>这是我的一个小插件;</p>
+        <input type="button" id="cls5" value="关闭按钮" />
+    </div>
+</div>
+<!--弹窗窗体结束-->  
+<p>
+<input type="button" id="pop_open5" value="弹窗示例5" />
+<script language="javascript">
+	$("#pop_open5").click(function(){
+		$("#test5").pop_container({
+			btnClose:"#cls5",	//关闭按钮：#cls5
+			scrollWith:false, 	//随窗口滚动？不
+			toggle:false, 		//显示插件自带按钮？不
+			bgColor:"#fff",		//背景遮罩层颜色
+			bgOpacity:0.8		//背景遮罩层透明度			
+			})
+		})
+</script>
+</p>
+<p>&nbsp;</p>
+<h2>调用示例6</h2>
+<pre>
+	$("#pop_open6").click(function(){
+		$("#test6").pop_container({
+			btnClose 		 :"#cls6",		//关闭按钮 			
+			toggle    		 :false, 		//不显示右上角关闭    	
+			scrollWith		 :true,			//随滚动条滚动？
+			bdColor			 :"#f00",		//边框颜色
+			bdOpacity	   	 :0.6,			//边框透明度
+			hasBg			 :false,		//不显示背景遮罩
+			zIndex			 :2046,			//最外层索引(背景遮罩)
+			dragble			 :false			//不可拖动
+			})
+		})</pre> 
+<!--以下是事先隐藏的弹窗代码-以下代码完全可自定义样式-->
+<div id="test6" style="width:600px; display:none">
+<pre>
+	$("#pop_open6").click(function(){
+		$("#test6").pop_container({
+			btnClose 		 :"#cls6",		//关闭按钮 			
+			toggle    		 :false, 		//不显示右上角关闭    	
+			scrollWith		 :true,			//随滚动条滚动？
+			bdColor			 :"#f00",		//边框颜色
+			bdOpacity	   	 :0.6,			//边框透明度
+			hasBg			 :false,		//不显示背景遮罩
+			zIndex			 :2046,			//最外层索引(背景遮罩)
+			dragble			 :false			//不可拖动
+			})
+		})</pre> 
+	<div style="line-height:25px; padding:10px; font-size:14px; color:#333;">
+        <input type="button" id="cls6" value="关闭按钮" />
+    </div>
+</div>
+<!--弹窗窗体结束-->  
+<p>
+<input type="button" id="pop_open6" value="弹窗示例6" />
+<script language="javascript">
+	$("#pop_open6").click(function(){
+		$("#test6").pop_container({
+			btnClose 		 :"#cls6",      //关闭按钮 			
+			toggle    		 :false, 		//不显示右上角关闭    	
+			scrollWith		 :true,			//随滚动条滚动？
+			bdColor			 :"#f00",		//边框颜色
+			bdOpacity	   	 :0.6,			//边框透明度
+			hasBg			 :false,		//不显示背景遮罩
+			zIndex			 :2046,			//最外层索引(背景遮罩)
+			dragble			 :false			//不可拖动
+			})
+		})
+</script>
+</p>
+
+
+<div style="border-top:1px #e0e0e0 solid; margin-top:12px; padding:15px 0 25px 0; color:#999;">
+	
+  © 2013 ui笔记 | Powered by WordPress  <a href="http://www.uinote.cn/">http://www.uinote.cn/</a></div>
+</div>
+<!--www.uinote.c-n-->
+</body>
+</html>
