@@ -7,6 +7,7 @@
 			cssAdd:""//附加的样式
 		}
 		var opt=$.extend(def,option);
+		return this.each(function() {
 		var _this=$(this);
 		var type=opt.type;
 		var cssText=opt.cssText;
@@ -84,6 +85,6 @@
 			pObj.show();	
 			
 		})
-
+	});
 	}
 })(jQuery)
